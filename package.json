@@ -1,0 +1,13 @@
+{
+  "name": "fkstore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js.js",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/html.css -o ./src/js.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
