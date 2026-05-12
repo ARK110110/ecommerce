@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../src/js.css">
+    <title>CommerceHub</title>
   </head>
   <body class="bg-[#F9F9FC]">
     <!-- Navbar -->
@@ -52,11 +53,13 @@
       <div class="flex justify-center">
         <div id="featuredProducts" class="w-[1154px] flex flex-row gap-[13px] flex-wrap">
           <!-- Card 1 -->
-          <div class="w-[220.4px] h-[484px] flex flex-col items-center border border-[#E8E8EA] rounded-[12px] gap-2 hover:scale-101">
-            <img src="../assets/Product.png" alt="" class="size h-[216px]">
-            <h1 class="text-[20px] text-[#1A1C1E] font-semibold text-center">Minimalist Ceramic Watch</h1>
-            <p class="text-[16px] text-[#3E4944] text-left w-[188.4px] flex">A timeless piece featuring a scratch-…</p>
-          </div>         
+          <div onclick="" class="w-[220.4px] h-[484px] flex flex-col items-center border border-[#E8E8EA] bg-[#FFFFFF] rounded-[12px] gap-2 duration-300 hover:scale-103 hover:border-[#c7c7c7] cursor-pointer">
+            <div class="w-full h-[216px] overflow-hidden rounded-t-[12px]">
+              <img src="${index.image}" alt="img.png" class="w-full h-[216px] flex rounded-t-[12px] object-cover duration-300 hover:scale-110">
+            </div>    
+                <h1 class="text-[20px] text-[#1A1C1E] font-semibold text-center" title="${index.title}">${index.title}</h1>
+                <p class="text-[16px] text-[#3E4944] text-left w-[188.4px] flex" title="${index.description}">${index.description}</p>
+             </div>            
         </div>
       </div>
     </div>
