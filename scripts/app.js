@@ -24,32 +24,37 @@ async function loadFeaturedProducts() {
   if (data.length === 0) {
     await getData();
   }
-
+  
   let featuredProducts = document.getElementById("featuredProducts")
   let highRatingProducts = data.sort((a, b) => b.rating.rate - a.rating.rate).slice(0, 5);
 
   featuredProducts.innerHTML = ""
   highRatingProducts.map((index) => {
-      let shortedtitle = shortenText(index.title, 17)
+    const id    = index.id
+    const img   = index.image
+    const title = index.title
+    const desc  = index.description
+    const price = index.price
+    let shortedtitle = shortenText(title, 17)
       featuredProducts.innerHTML += `
-            <div class="w-[220.4px] h-[484px] flex flex-col items-center border border-[#E8E8EA] bg-[#FFFFFF] rounded-[12px] gap-2 duration-300 hover:scale-103 hover:border-[#c7c7c7] cursor-pointer">
-            <div class="w-full h-[216px] overflow-hidden rounded-t-[12px]">
-              <img src="${index.image}" alt="img.png" class="w-full h-[216px] flex rounded-t-[12px] object-cover duration-300 hover:scale-110">
-            </div>    
-                <h1 class="text-[20px] text-[#1A1C1E] font-semibold text-center" title="${index.title}">${shortedtitle}</h1>
-                <p class="text-[16px] text-[#3E4944] text-left w-[188.4px] flex" title="${index.description}">${shortenText(index.description, 70)}</p>
-             </div>  
+            <div onclick="location.href='detail.html?id=${id}'" class="w-[220.4px] h-[484px] flex flex-col items-center border border-[#E8E8EA] bg-[#FFFFFF] rounded-[12px] gap-2 duration-300 hover:scale-103 hover:border-[#c7c7c7] cursor-pointer">
+              <div class="w-full h-[216px] overflow-hidden rounded-t-[12px]">
+                <img src="${img}" alt="img.png" class="w-full h-[216px] flex rounded-t-[12px] object-cover duration-300 hover:scale-110">
+              </div>    
+                  <h1 class="text-[20px] text-[#1A1C1E] font-semibold text-center" title="${title}">${shortedtitle}</h1>
+                  <p class="text-[16px] text-[#3E4944] text-left w-[188.4px] flex" title="${desc}">${shortenText(desc, 70)}</p>
+            </div>  
       `
   })
 }
 
 loadFeaturedProducts();
 
-async function loadData() {
+async function loadData() { // Not used yet.
     if (data.length === 0) {
         await getData()
     }
-
+    
     let content = document.getElementById("content")
     content.innerHTML = ""
     data.forEach((index) => {
@@ -76,5 +81,5 @@ async function loadData() {
 //     }
 // }
 
-loadData()
+// loadData()
 
