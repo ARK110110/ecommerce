@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/style.css">
+    <title>CommerceHub - Cart</title>
+</head>
+<body class="bg-[#F9F9FC]">
+    <!-- Navbar -->
+    <div class="flex flex-row w-full items-center justify-between px-[20px] py-[20px] border-b border-[#E8E8EA]">
+      <div class="flex flex-row items-center gap-2">
+        <svg id="menu-btn" onclick="document.getElementById('menu').classList.toggle('hidden')" class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#00654B" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        <a class="text-[24px] font-bold text-[#00654B] cursor-pointer tracking-[-0.25px]" href="home.html">CommerceHub</a>
+        <div id="menu" class="absolute z-50 top-20 bg-[#00654B] py-5 pr-10 left-0 rounded-r-[12.5px] hidden">
+          <ul class="flex flex-col gap-2 pl-[20px]">
+            <li class="font-bold text-white hover:scale-110 duration-300 text-[24px]"><a href="home.html">Home</a></li>
+            <li class="font-bold text-white hover:scale-110 duration-300 text-[24px]"><a href="">Products</a></li>
+            <li class="font-bold text-white hover:scale-110 duration-300 text-[24px]"><a href="cart.html">Cart</a></li>
+            <li class="font-bold text-white hover:scale-110 duration-300 text-[24px]"><a href="">Category</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border border-[#BDC9C2] bg-[#F3F3F6] rounded-[8px] px-[12px] py-[12px] w-[500px] flex flex-row items-center gap-[12px] justify-center">
+        <svg  xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="3E4944" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14"/></svg>
+        <input type="text" class="w-full focus:outline-0" placeholder="Search for products, brands, and more...">
+      </div>
+      <a href="" class="cursor-pointer">
+        <svg class="hover:scale-110 hover:animate-pulse" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#00654B" d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1zm6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5z" stroke-width="0.5" stroke="#00654B"/></svg>  
+      </a>
+    </div>
+
+    <div class="flex w-full justify-center mt-[40px]">
+        <div class="w-[1200px] flex flex-col justify-center gap-[32px]">
+            <div class="flex flex-col gap-[4px] w-full">
+                <h1 class="font-semibold text-[30px] text-[#1A1C1E]">Shopping Cart</h1>
+                <p id="cartItems" class="text-[#3E4944]">You have 3 items in your shopping cart.</p>
+            </div>
+
+            <div class="flex flex-row gap-[24px] w-full">
+                <!-- products -->
+                <div id="" class="max-w-[792px] w-full gap-[16px] flex flex-col">
+                    <div class="flex flex-row gap-[16px] px-[16px] py-[16px] rounded-[8px] border border-[#BDC9C2]">
+                    <img src="" alt="" class="w-32 h-32 rounded-[8px]">
+                    <div class="flex flex-col justify-between w-full">
+                        <div class="flex flex-row justify-between">
+                            <div class="flex flex-col">
+                                <p class="text-[20px] font-semibold text-[#1A1C1E]">Product Title</p>
+                            <p class="text-[13px] font-medium text-[#3E4944]">Category: product_category</p>
+                        </div>
+                            <p class="text-[20px] font-semibold text-[#00654B]">$100</p>
+                        </div>
+
+                        <div class="flex flex-row justify-between">
+                            <div class="border border-[#BDC9C2] rounded-[8px] flex flex-row">
+                                <button class="cursor-pointer hover:bg-[#e8e8e8] rounded-l-[8px]">
+                                    <svg class="mx-[16px] my-[7px]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">	<path d="M0 0h24v24H0z" fill="none" />	<path fill="#1a1c1e" d="M19 12.998H5v-2h14z" /></svg>
+                                </button> 
+                                <input id="" value="1" type="number" inputmode="numeric" class="w-[48px] text-center border-l border-r border-[#BDC9C2] focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" min="1">
+                                <button class="cursor-pointer hover:bg-[#e8e8e8] rounded-r-[8px]">
+                                    <svg class="mx-[16px] my-[7px]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">	<path d="M0 0h24v24H0z" fill="none" />	<path fill="#4547D7" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z" /></svg>
+                                </button>
+                            </div>
+
+                            <button class="cursor-pointer">
+                                <div class="flex flex-row gap-[4px]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><g fill="none" stroke="#ba1a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 20h5c0.5 0 1 -0.5 1 -1v-14M12 20h-5c-0.5 0 -1 -0.5 -1 -1v-14"/><path d="M4 5h16"/><path d="M10 4h4M10 9v7M14 9v7"/></g></svg>    
+                                    <p class="text-[16px] text-[#ba1a1a]">Remove</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="max-w-[384px] w-full flex flex-col px-[24px] py-[24px] bg-[#F3F3F6] border border-[#BDC9C2]/30 shadow shadow-[0px_1px_2px_0px_hex(000000)/5] rounded-[12px]">
+                    <div class="pb-[24px] w-full flex">
+                        <p class="text-[24px] font-semibold">Order Summary</p>  
+                    </div>
+
+                    <div class="flex flex-col gap-[16px] pb-[24px] border-b border-[#E2E2E5]">
+                        <div class="flex flex-row justify-between justify-between">
+                            <p class="text-[#3E4944]">Subtotal</p>
+                            <p class="text-[#3E4944]">$100</p>
+                        </div>
+                        <div class="flex flex-row justify-between justify-between">
+                            <p class="text-[#3E4944]">Delivery (Standard)</p>
+                            <p class="text-[#00654B] font-bold ">Free</p>
+                        </div>
+                        <div class="flex flex-row justify-between justify-between">
+                            <p class="text-[#3E4944]">Tax (PPN 11%)</p>
+                            <p class="text-[#3E4944]">$11</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row pt-[24px] pb-[48px] justify-between items-center">
+                        <p class="text-[20px] font-semibold text-[#1A1C1E]">Total</p>
+                        <p class="text-[24px] font-bold text-[#00654B]">$333</p>
+                    </div>
+
+                    <button class="bg-[#008060] rounded-[8px] py-[16px] gap-[8px] flex flex-row justify-center cursor-pointer hover:scale-105 duration-300">
+                        <p class="text-[20px] font-semibold text-[#D6FFEB]">Proceed to Checkout</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path fill="#d6ffeb" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"/></svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
