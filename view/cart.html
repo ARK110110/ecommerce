@@ -39,40 +39,42 @@
 
             <div class="flex flex-row gap-[24px] w-full">
                 <!-- products -->
-                <div id="" class="max-w-[792px] w-full gap-[16px] flex flex-col">
+                <div id="cartProducts" class="max-w-[792px] w-full gap-[16px] flex flex-col">
                     <div class="flex flex-row gap-[16px] px-[16px] py-[16px] rounded-[8px] border border-[#BDC9C2]">
-                    <img src="" alt="" class="w-32 h-32 rounded-[8px]">
-                    <div class="flex flex-col justify-between w-full">
-                        <div class="flex flex-row justify-between">
-                            <div class="flex flex-col">
-                                <p class="text-[20px] font-semibold text-[#1A1C1E]">Product Title</p>
-                            <p class="text-[13px] font-medium text-[#3E4944]">Category: product_category</p>
+                        <div class="w-32 h-32 rounded-[8px] overflow-hidden flex items-center justify-center border border-[#BDC9C2]">
+                            <img src="../assets/Product.png" alt="" class="object-cover rounded-[8px] hover:scale-110 duration-300">
                         </div>
-                            <p class="text-[20px] font-semibold text-[#00654B]">$100</p>
-                        </div>
-
-                        <div class="flex flex-row justify-between">
-                            <div class="border border-[#BDC9C2] rounded-[8px] flex flex-row">
-                                <button class="cursor-pointer hover:bg-[#e8e8e8] rounded-l-[8px]">
-                                    <svg class="mx-[16px] my-[7px]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">	<path d="M0 0h24v24H0z" fill="none" />	<path fill="#1a1c1e" d="M19 12.998H5v-2h14z" /></svg>
-                                </button> 
-                                <input id="" value="1" type="number" inputmode="numeric" class="w-[48px] text-center border-l border-r border-[#BDC9C2] focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" min="1">
-                                <button class="cursor-pointer hover:bg-[#e8e8e8] rounded-r-[8px]">
-                                    <svg class="mx-[16px] my-[7px]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">	<path d="M0 0h24v24H0z" fill="none" />	<path fill="#4547D7" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z" /></svg>
-                                </button>
+                        <div class="flex flex-col justify-between w-full">
+                            <div class="flex flex-row justify-between">
+                                <div class="flex flex-col">
+                                    <p class="text-[20px] font-semibold text-[#1A1C1E]">Product Title</p>
+                                    <p class="text-[13px] font-medium text-[#3E4944]">Category: product_category</p>
+                                </div>
+                                <p class="text-[20px] font-semibold text-[#00654B]">$100</p>
                             </div>
 
-                            <button class="cursor-pointer">
-                                <div class="flex flex-row gap-[4px]">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><g fill="none" stroke="#ba1a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 20h5c0.5 0 1 -0.5 1 -1v-14M12 20h-5c-0.5 0 -1 -0.5 -1 -1v-14"/><path d="M4 5h16"/><path d="M10 4h4M10 9v7M14 9v7"/></g></svg>    
-                                    <p class="text-[16px] text-[#ba1a1a]">Remove</p>
+                            <div class="flex flex-row justify-between">
+                                <div class="border border-[#BDC9C2] rounded-[8px] flex flex-row">
+                                    <button class="cursor-pointer hover:bg-[#e8e8e8] rounded-l-[8px]">
+                                        <svg class="mx-[16px] my-[7px]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">	<path d="M0 0h24v24H0z" fill="none" />	<path fill="#1a1c1e" d="M19 12.998H5v-2h14z" /></svg>
+                                    </button> 
+                                    <input id="" value="1" type="number" inputmode="numeric" class="w-[48px] text-center border-l border-r border-[#BDC9C2] focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" min="1">
+                                    <button class="cursor-pointer hover:bg-[#e8e8e8] rounded-r-[8px]">
+                                        <svg class="mx-[16px] my-[7px]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">	<path d="M0 0h24v24H0z" fill="none" />	<path fill="#4547D7" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z" /></svg>
+                                    </button>
                                 </div>
-                            </button>
+
+                                <button class="cursor-pointer">
+                                    <div class="flex flex-row gap-[4px]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><g fill="none" stroke="#ba1a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 20h5c0.5 0 1 -0.5 1 -1v-14M12 20h-5c-0.5 0 -1 -0.5 -1 -1v-14"/><path d="M4 5h16"/><path d="M10 4h4M10 9v7M14 9v7"/></g></svg>    
+                                        <p class="text-[16px] text-[#ba1a1a]">Remove</p>
+                                    </div>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    </div>
                 </div>
-                <div class="max-w-[384px] w-full flex flex-col px-[24px] py-[24px] bg-[#F3F3F6] border border-[#BDC9C2]/30 shadow shadow-[0px_1px_2px_0px_hex(000000)/5] rounded-[12px]">
+                <div id="orderSummary" class="max-w-[384px] h-fit w-full flex flex-col px-[24px] py-[24px] bg-[#F3F3F6] border border-[#BDC9C2]/30 shadow shadow-[0px_1px_2px_0px_hex(000000)/5] rounded-[12px]">
                     <div class="pb-[24px] w-full flex">
                         <p class="text-[24px] font-semibold">Order Summary</p>  
                     </div>
@@ -102,9 +104,10 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path fill="#d6ffeb" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"/></svg>
                     </button>
                 </div>
-
             </div>
         </div>
     </div>
+
+    <script src="../scripts/showCarts.js"></script>
 </body>
 </html>
