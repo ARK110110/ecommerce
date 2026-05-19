@@ -1,8 +1,4 @@
 async function addToCart(productId) {
-    let currentDetailedData = {
-        id: Number,
-        category: ""
-    }
     try {
         const res = await fetch(`https://fakestoreapi.com/products/${productId}`)
         const item = await res.json()
@@ -13,19 +9,31 @@ async function addToCart(productId) {
         const desc  = item.description
         const price = item.price
         const ctgry = item.category
-        const rate  = item.rating.rate
-        const count = item.rating.count
-
-        const productData = {
-            id: id
+        const quantityValue = Number(document.getElementById("quantity").value)
+        let cart = JSON.parse(localStorage.getItem("cart")) || []
+        
+        const exsisted = cart.find(produk => produk.id === id)
+        
+        if (exsisted) {
+            exsisted.quantity += Number(quantityValue)
+            exsisted.total_price = Number(exsisted.quantity) * price
+            alert(`added ${quantityValue}, ${title} to cart!`)
+        } else {
+            cart.push({
+                "id": id,
+                "image": img,
+                "title": title,
+                "category": ctgry,
+                "price": price,
+                "quantity": quantityValue,
+                "total_price": quantityValue * price,
+            })
+            alert(`added ${title} to cart!`)
         }
-
-        localStorage.setItem("item", JSON.stringify())
-        console.log(item);
+        localStorage.setItem("cart", JSON.stringify(cart))
         
     } catch(error) {
         console.log(error);
         
     }
-    
 }
