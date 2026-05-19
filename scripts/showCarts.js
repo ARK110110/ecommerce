@@ -5,27 +5,42 @@ function shortenText(text, limit) {
     return text;
 }
 
+function formatUSD(number) {
+    return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD"
+    }).format(number);
+}
+
+function rupiahFormat(num) {
+    return `Rp. ${(num * 17598.20).toLocaleString("id-ID", {minimumFractionDigits:2, maximumFractionDigits:2})}`
+}
+
 async function showProducts() {
-    let Subtotal = 0
+    let Subtotal = 0;
     // ids
-    const cartItems = document.getElementById("cartItems")
-    const cartProducts = document.getElementById("cartProducts")
-    const orderSummary = document.getElementById("orderSummary")
-    Subtotal = 0
-    const cart = JSON.parse(localStorage.getItem("cart"))
-    cartProducts.innerHTML = ""
+    const cartItems = document.getElementById("cartItems");
+    const cartProducts = document.getElementById("cartProducts");
+    const orderSummary = document.getElementById("orderSummary");
+    // Subtotal = 0
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    cartProducts.innerHTML = "";
+    if (cart.length == 0) {
+        cartItems.innerHTML = "You have no items in your shopping cart."
+    } else {
+        cartItems.innerHTML = `You have ${cart.length} items in your shopping cart.`;
+    }
     cart.map((item) => {
-        console.log(item);
+        // console.log(item);
         // Keywords
-        const id    = item.id
-        const img   = item.image
-        const title = item.title
-        const desc  = item.description
-        const price = item.price
-        const ctgry = item.category
-        const quantity = item.quantity
-        // 
-        cartItems.innerHTML = `You have ${cart.length} items in your shopping cart.`
+        const id = item.id;
+        const img = item.image;
+        const title = item.title;
+        const desc = item.description;
+        const price = item.price;
+        const ctgry = item.category;
+        const quantity = item.quantity;
+        //
         cartProducts.innerHTML += `
         <div class="flex flex-row gap-[16px] px-[16px] py-[16px] rounded-[8px] border border-[#BDC9C2]">
         <div class="w-32 h-32 rounded-[8px]  flex items-center justify-center">
@@ -34,7 +49,7 @@ async function showProducts() {
         <div class="flex flex-col justify-between w-full">
                     <div class="flex flex-row justify-between">
                     <div class="flex flex-col">
-                        <p class="text-[20px] font-semibold text-[#1A1C1E]">${shortenText(title, 45)}</p>
+                        <a href='../view/detail.html?id=${id}' class="text-[20px] font-semibold text-[#1A1C1E]">${shortenText(title, 45)}</a>
                         <p class="text-[13px] font-medium text-[#3E4944]">Category: ${ctgry}</p>
                         </div>
                         <p class="text-[20px] font-semibold text-[#00654B]">$${price}</p>
@@ -49,7 +64,7 @@ async function showProducts() {
                         <svg class="mx-[16px] my-[7px]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">	<path d="M0 0h24v24H0z" fill="none"></path>	<path fill="#4547D7" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z"></path></svg>
                         </button>
                         </div>
-                        <button class="cursor-pointer">
+                        <button onclick="removeProduct(${id})" class="cursor-pointer">
                                 <div class="flex flex-row gap-[4px]">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><g fill="none" stroke="#ba1a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 20h5c0.5 0 1 -0.5 1 -1v-14M12 20h-5c-0.5 0 -1 -0.5 -1 -1v-14"></path><path d="M4 5h16"></path><path d="M10 4h4M10 9v7M14 9v7"></path></g></svg>    
                                 <p class="text-[16px] text-[#ba1a1a]">Remove</p>
@@ -58,24 +73,82 @@ async function showProducts() {
                     </div>
                     </div>
             </div>
-            `
-            Subtotal += item.total_price
-    })
+            `;
+        Subtotal += item.total_price;
+    });
     cart.map((item) => {
-        console.log(item);
-        // Keywords
-        const id    = item.id
-        const img   = item.image
-        const title = item.title
-        const desc  = item.description
-        const price = item.price
-        const ctgry = item.category
-        const quantity = item.quantity
         orderSummary.innerHTML = `
-        <div class="pb-[24px] w-full flex">
-            <p class="text-[24px] font-semibold">Order Summary</p>  
-        </div>
-        <div class="flex flex-col gap-[16px] pb-[24px] border-b border-[#E2E2E5]">
+            <div class="pb-[24px] w-full flex">
+                <p class="text-[24px] font-semibold">Order Summary</p>  
+            </div>
+            <div class="flex flex-col gap-[16px] pb-[24px] border-b border-[#E2E2E5]">
+            <div class="flex flex-row justify-between justify-between">
+                    <p class="text-[#3E4944]">Subtotal</p>
+                    <p class="text-[#3E4944]">${formatUSD(Subtotal.toFixed(2))}</p>
+            </div>
+            <div class="flex flex-row justify-between justify-between">
+                    <p class="text-[#3E4944]">Delivery (Standard)</p>
+                    <p class="text-[#00654B] font-bold ">Free</p>
+            </div>
+            <div class="flex flex-row justify-between justify-between">
+                <p class="text-[#3E4944]">Tax (PPN 11%)</p>
+                <p class="text-[#3E4944]">${formatUSD((Subtotal * 0.11).toFixed(2))}</p>
+            </div>
+                </div>
+            <div class="flex flex-row pt-[24px] pb-[48px] justify-between items-center">
+                <p class="text-[20px] font-semibold text-[#1A1C1E]">Total</p>
+                <p class="text-[24px] font-bold text-[#00654B]" id="total" onmouseenter="document.getElementById('total').innerHTML = '${rupiahFormat((Subtotal * 1.11).toFixed(2))}'" onmouseleave="document.getElementById('total').innerHTML = '${formatUSD((Subtotal * 1.11).toFixed(2))}'">${formatUSD((Subtotal * 1.11).toFixed(2))}</p>
+            </div>
+                <button class="bg-[#008060] rounded-[8px] py-[16px] gap-[8px] flex flex-row justify-center cursor-pointer hover:scale-105 duration-300">
+                    <p class="text-[20px] font-semibold text-[#D6FFEB]">Proceed to Checkout</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path fill="#d6ffeb" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"></path></svg>
+                </button>
+            `;
+    });
+}
+showProducts();
+
+function updateQuantity(id) {
+    const quantity = document.getElementById(`quantity_${id}`);
+    const quantityValue = Number(document.getElementById(`quantity_${id}`).value);
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let exsisted = cart.find((produk) => produk.id === id);
+
+    exsisted.quantity = quantityValue;
+    exsisted.total_price = quantityValue * exsisted.price;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    showProducts();
+}
+
+function quantityFunc(operator, id) {
+    const quantity = document.getElementById(`quantity_${id}`);
+    const quantityValue = Number(document.getElementById(`quantity_${id}`).value);
+
+    if (operator == "+" && quantityValue >= 1) {
+        quantity.value = quantityValue + 1;
+        updateQuantity(id);
+    } else if (operator == "-" && quantityValue > 1) {
+        quantity.value = quantityValue - 1;
+        updateQuantity(id);
+    }
+}
+
+function removeProduct(id) {
+    const orderSummary = document.getElementById("orderSummary");
+    let Subtotal = 0;
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart = cart.filter((produk) => produk.id !== id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    cart.map((item) => {
+        Subtotal += item.total_price;
+    });
+    orderSummary.innerHTML = `
+            <div class="pb-[24px] w-full flex">
+                <p class="text-[24px] font-semibold">Order Summary</p>  
+            </div>
+            <div class="flex flex-col gap-[16px] pb-[24px] border-b border-[#E2E2E5]">
             <div class="flex flex-row justify-between justify-between">
                     <p class="text-[#3E4944]">Subtotal</p>
                     <p class="text-[#3E4944]">$${Subtotal.toFixed(2)}</p>
@@ -86,49 +159,17 @@ async function showProducts() {
             </div>
             <div class="flex flex-row justify-between justify-between">
                 <p class="text-[#3E4944]">Tax (PPN 11%)</p>
-                    <p class="text-[#3E4944]">$${(Subtotal * 0.11).toFixed(2)}</p>
+                <p class="text-[#3E4944]">$${(Subtotal * 0.11).toFixed(2)}</p>
+            </div>
                 </div>
-                </div>
-                <div class="flex flex-row pt-[24px] pb-[48px] justify-between items-center">
+            <div class="flex flex-row pt-[24px] pb-[48px] justify-between items-center">
                 <p class="text-[20px] font-semibold text-[#1A1C1E]">Total</p>
                 <p class="text-[24px] font-bold text-[#00654B]">$${(Subtotal * 1.11).toFixed(2)}</p>
-                </div>
+            </div>
                 <button class="bg-[#008060] rounded-[8px] py-[16px] gap-[8px] flex flex-row justify-center cursor-pointer hover:scale-105 duration-300">
-                <p class="text-[20px] font-semibold text-[#D6FFEB]">Proceed to Checkout</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path fill="#d6ffeb" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"></path></svg>
+                    <p class="text-[20px] font-semibold text-[#D6FFEB]">Proceed to Checkout</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path fill="#d6ffeb" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"></path></svg>
                 </button>
-                `
-    })
-    
-}
-showProducts()
-
-function updateQuantity(id) {
-    const quantity = document.getElementById(`quantity_${id}`)
-    const quantityValue = Number(document.getElementById(`quantity_${id}`).value)
-    let cart = JSON.parse(localStorage.getItem("cart")) || []
-    
-    const exsisted = cart.find(produk => produk.id === id)
-
-    exsisted.quantity = quantityValue
-    exsisted.total_price = quantityValue * exsisted.price
-    localStorage.setItem("cart", JSON.stringify(cart))
-    showProducts()
-}
-
-function quantityFunc(operator, id) {
-    const quantity = document.getElementById(`quantity_${id}`)
-    const quantityValue = Number(document.getElementById(`quantity_${id}`).value)
-    
-    if (operator == "+" && quantityValue >= 1) {
-        quantity.value = quantityValue + 1
-        updateQuantity(id)
-        // exsisted.quantity = Number(quantityValue) + 1
-        // showProducts()
-        // exsisted.total_price = Number(exsisted.quantity) * exsisted.price
-        // document.getElementById("quantity").value = exsisted.quantity
-    } else if (operator == "-" && quantityValue > 1) {
-        quantity.value = quantityValue - 1
-        updateQuantity(id)
-    }
+            `;
+    showProducts();
 }

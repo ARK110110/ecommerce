@@ -12,7 +12,7 @@ async function addToCart(productId) {
         const quantityValue = Number(document.getElementById("quantity").value)
         let cart = JSON.parse(localStorage.getItem("cart")) || []
         
-        const exsisted = cart.find(produk => produk.id === id)
+        const exsisted = cart.find(item => item.id === id)
         
         if (exsisted) {
             exsisted.quantity += Number(quantityValue)

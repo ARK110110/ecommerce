@@ -7,12 +7,13 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-50: oklch(97.1% 0.013 17.38);
+    --color-red-400: oklch(70.4% 0.191 22.216);
     --color-white: #fff;
     --spacing: 0.25rem;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-    --font-weight-extrabold: 800;
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
@@ -173,8 +174,14 @@
   .relative {
     position: relative;
   }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
   .top-20 {
     top: calc(var(--spacing) * 20);
+  }
+  .right-0 {
+    right: calc(var(--spacing) * 0);
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
@@ -190,6 +197,9 @@
   }
   .my-\[30px\] {
     margin-block: 30px;
+  }
+  .my-\[40px\] {
+    margin-block: 40px;
   }
   .mt-40 {
     margin-top: calc(var(--spacing) * 40);
@@ -236,14 +246,17 @@
   .h-full {
     height: 100%;
   }
-  .max-h-32 {
-    max-height: calc(var(--spacing) * 32);
+  .max-h-\[1w\] {
+    max-height: 1w;
   }
   .max-h-\[200\.4px\] {
     max-height: 200.4px;
   }
   .max-h-\[300px\] {
     max-height: 300px;
+  }
+  .max-h-screen {
+    max-height: 100vh;
   }
   .w-32 {
     width: calc(var(--spacing) * 32);
@@ -293,9 +306,6 @@
   .w-full {
     width: 100%;
   }
-  .max-w-32 {
-    max-width: calc(var(--spacing) * 32);
-  }
   .max-w-\[200\.4px\] {
     max-width: 200.4px;
   }
@@ -304,6 +314,9 @@
   }
   .max-w-\[384px\] {
     max-width: 384px;
+  }
+  .max-w-\[400px\] {
+    max-width: 400px;
   }
   .max-w-\[462px\] {
     max-width: 462px;
@@ -314,22 +327,10 @@
   .border-collapse {
     border-collapse: collapse;
   }
-  .scale-80 {
-    --tw-scale-x: 80%;
-    --tw-scale-y: 80%;
-    --tw-scale-z: 80%;
-    scale: var(--tw-scale-x) var(--tw-scale-y);
-  }
   .scale-85 {
     --tw-scale-x: 85%;
     --tw-scale-y: 85%;
     --tw-scale-z: 85%;
-    scale: var(--tw-scale-x) var(--tw-scale-y);
-  }
-  .scale-90 {
-    --tw-scale-x: 90%;
-    --tw-scale-y: 90%;
-    --tw-scale-z: 90%;
     scale: var(--tw-scale-x) var(--tw-scale-y);
   }
   .cursor-pointer {
@@ -460,6 +461,12 @@
   .border-\[\#E8E8EA\] {
     border-color: #E8E8EA;
   }
+  .border-red-50 {
+    border-color: var(--color-red-50);
+  }
+  .border-red-400 {
+    border-color: var(--color-red-400);
+  }
   .bg-\[\#92F6CF\] {
     background-color: #92F6CF;
   }
@@ -489,6 +496,9 @@
   }
   .p-\[10px\] {
     padding: 10px;
+  }
+  .p-\[16px\] {
+    padding: 16px;
   }
   .px-\[8px\] {
     padding-inline: 8px;
@@ -674,16 +684,6 @@
       }
     }
   }
-  .hover\:scale-100 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-scale-x: 100%;
-        --tw-scale-y: 100%;
-        --tw-scale-z: 100%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
   .hover\:scale-103 {
     &:hover {
       @media (hover: hover) {
@@ -710,16 +710,6 @@
         --tw-scale-x: 110%;
         --tw-scale-y: 110%;
         --tw-scale-z: 110%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
-  .hover\:scale-1100 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-scale-x: 1100%;
-        --tw-scale-y: 1100%;
-        --tw-scale-z: 1100%;
         scale: var(--tw-scale-x) var(--tw-scale-y);
       }
     }

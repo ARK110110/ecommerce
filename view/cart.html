@@ -28,13 +28,21 @@
       <a href="" class="cursor-pointer">
         <svg class="hover:scale-110 hover:animate-pulse" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#00654B" d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1zm6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5z" stroke-width="0.5" stroke="#00654B"/></svg>  
       </a>
+        <!-- <div class="absolute max-w-[400px] max-h-screen w-full h-full bg-[#ffff] right-0 top-0 rounded-[12px] gap-[10px]">
+            <div class="p-[16px] justify-between flex items-center">
+                <h1 class="text-[20px] font-semibold text-[#00654B]">Shopping Cart</h1>
+                <button class="cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path fill="#3e4944" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"/></svg>
+                </button>
+            </div>
+        </div> -->
     </div>
 
-    <div class="flex w-full justify-center mt-[40px]">
+    <div class="flex w-full justify-center my-[40px]">
         <div class="w-[1200px] flex flex-col justify-center gap-[32px]">
             <div class="flex flex-col gap-[4px] w-full">
                 <h1 class="font-semibold text-[30px] text-[#1A1C1E]">Shopping Cart</h1>
-                <p id="cartItems" class="text-[#3E4944]">You have 3 items in your shopping cart.</p>
+                <p id="cartItems" class="text-[#3E4944]">You have no items in your shopping cart.</p>
             </div>
 
             <div class="flex flex-row gap-[24px] w-full">
@@ -82,7 +90,7 @@
                     <div class="flex flex-col gap-[16px] pb-[24px] border-b border-[#E2E2E5]">
                         <div class="flex flex-row justify-between justify-between">
                             <p class="text-[#3E4944]">Subtotal</p>
-                            <p class="text-[#3E4944]">$100</p>
+                            <p class="text-[#3E4944]">$0</p>
                         </div>
                         <div class="flex flex-row justify-between justify-between">
                             <p class="text-[#3E4944]">Delivery (Standard)</p>
@@ -90,13 +98,13 @@
                         </div>
                         <div class="flex flex-row justify-between justify-between">
                             <p class="text-[#3E4944]">Tax (PPN 11%)</p>
-                            <p class="text-[#3E4944]">$11</p>
+                            <p class="text-[#3E4944]">$0</p>
                         </div>
                     </div>
 
                     <div class="flex flex-row pt-[24px] pb-[48px] justify-between items-center">
                         <p class="text-[20px] font-semibold text-[#1A1C1E]">Total</p>
-                        <p class="text-[24px] font-bold text-[#00654B]">$333</p>
+                        <p class="text-[24px] font-bold text-[#00654B]">$0</p>
                     </div>
 
                     <button class="bg-[#008060] rounded-[8px] py-[16px] gap-[8px] flex flex-row justify-center cursor-pointer hover:scale-105 duration-300">
