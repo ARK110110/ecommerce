@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/style.css">
+    <title>CommerceHub - Products</title>
+</head>
+<body class="bg-[#F9F9FC]">
+    <!-- Navbar -->
+    <div class="flex flex-row w-full items-center justify-between px-[20px] py-[20px] border-b border-[#E8E8EA]">
+      <div class="flex flex-row items-center gap-2">
+        <svg id="menu-btn" onclick="document.getElementById('menu').classList.toggle('hidden')" class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#00654B" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        <a class="text-[24px] font-bold text-[#00654B] cursor-pointer tracking-[-0.25px]" href="home.html">CommerceHub</a>
+        <div id="menu" class="absolute z-50 top-20 bg-[#00654B] py-5 pr-10 left-0 rounded-r-[12.5px] hidden">
+          <ul class="flex flex-col gap-2 pl-[20px]">
+            <li class="font-bold text-white hover:scale-110 duration-300 text-[24px]"><a href="home.html">Home</a></li>
+            <li class="font-bold text-white hover:scale-110 duration-300 text-[24px]"><a href="products.html">Products</a></li>
+            <li class="font-bold text-white hover:scale-110 duration-300 text-[24px]"><a href="cart.html">Cart</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border border-[#BDC9C2] bg-[#F3F3F6] rounded-[8px] px-[12px] py-[12px] w-[500px] flex flex-row items-center gap-[12px] justify-center">
+        <svg  xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="3E4944" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14"/></svg>
+        <input type="text" class="w-full focus:outline-0" placeholder="Search for products, brands, and more...">
+      </div>
+      <a href="" class="cursor-pointer">
+        <svg class="hover:scale-110 hover:animate-pulse" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#00654B" d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1zm6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5z" stroke-width="0.5" stroke="#00654B"/></svg>  
+      </a>
+    </div>
+    <!-- Products -->
+     <div class="w-full flex justify-center"> 
+         <div class="max-w-[1200px] w-full px-[16px] py-[40px] flex flex-col gap-[16px]">
+             <!-- Category -->
+             <div id="categoryContent" class="py-[16px] gap-[8px]">
+                 <button class="px-[24px] py-[8px] text-[#ffff] rounded-[4px] bg-[#5F62F1]">All</button>
+                 <button class="px-[24px] py-[8px] text-[#3E4944] rounded-[4px] w-fit h-fit border border-[#BDC9C2]">Men's clothing</button>
+                 <button class="px-[24px] py-[8px] text-[#3E4944] rounded-[4px] w-fit h-fit border border-[#BDC9C2]">Men's clothing</button>
+            </div>
+
+            <div class="flex flex-row justify-between items-end">
+                <div class="gap-[4px] flex-col">
+                    <h1 class="font-semibold text-[30px] text-[#1A1C1E]">Shop By Collection</h1>
+                    <p class="text-[#3E4944]">Browse fashion, electronics, jewelry, and more.</p>
+                </div>
+                <div class="gap-[8px] flex flex-row items-center w-fit">
+                    <p class="text-[#3E4944]">Sort by:</p>
+                    <button class="gap-[10px] px-[12px] py-[4px] rounded-[4px] cursor-pointer flex flex-row justify-between items-center rounded-[4px] border border-[#BDC9C2]">
+                        <p>Featured</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 1024 1024"><path d="M0 0h1024v1024H0z" fill="none"/><path fill="#6b7280" d="M104.7 338.8a64 64 0 0 1 90.5 0L512 655.6l316.8-316.8a64 64 0 0 1 90.5 90.4l-362 362.1a64 64 0 0 1-90.5 0l-362.1-362a64 64 0 0 1 0-90.5"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="cardContent" class="gap-[16px] gap- flex flex-row flex-wrap max-w-[1200px] w-full h-full">
+                <!-- card 1 -->
+                <div class="rounded-[12px] flex flex-col border border-[#E1E3E5] w-fit group hover:scale-101 duration-300">
+                    <div class="w-[278px] h-[278px] overflow-hidden w-full h-full rounded-t-[12px]">
+                        <img src="../assets/Product.png" alt="" class="object-cover w-full group-hover:scale-105 duration-300">
+                    </div>
+                    <div class="px-[16px] py-[16px]">
+                        <p class="text-[#1A1C1E] pb-[4px]">Product_title</p>
+                        <p class="text-[#3E4944] pb-[16px] text-[14px]">Product_descr</p>
+                        <div class="pt-[4px] gap-[16px] flex flex-col">
+                            <p class="text-[20px] text-[#00654B] font-semibold">$150.00</p>
+                            <div class="flex flex-row gap-[8px]">
+                                <button class="px-[10px] rounded-[4px] border border-[#00654B] hover:scale-95 duration-300 cursor-pointer flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#00654B" d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1zm6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5z" stroke-width="0.5" stroke="#00654B"/></svg>  
+                                </button>
+                                <button class="py-[10px] bg-[#00654B] rounded-[4px] w-full text-white">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/app.js"></script>
+</body>
+</html>

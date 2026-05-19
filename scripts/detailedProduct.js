@@ -50,7 +50,7 @@ async function getData(dataid) {
         const harga = document.getElementById("harga")
         //--------------------------------------------//
         content.innerHTML = `
-        <div class="overflow-hidden w-[650px] h-[650px] border border-[#BDC9C2] bg-[#F3F3F6] rounded-[12px] flex justify-center items-center">
+        <div class="overflow-hidden w-[650px] h-[650px] border border-[#BDC9C2] bg-[#ffff] rounded-[12px] flex justify-center items-center">
              <img src="${img}" alt="" class="object-cover hover:scale-110 duration-500">
         </div>
         <div class="flex flex-col gap-[10px] max-w-[462px]">
